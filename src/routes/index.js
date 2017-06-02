@@ -7,5 +7,6 @@ let routes = []
 routes = routes.concat(homeRoutes)
 
 export default new vueRouter({
+	mode: 'history',
 	routes
 })

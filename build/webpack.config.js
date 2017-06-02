@@ -39,7 +39,15 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json-loader'
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: path.posix.join(__dirname, '../dist/assets/images/[name].[ext]')
+        }
+      },
     ]
   },
   vue: {
@@ -53,7 +61,7 @@ module.exports = {
   plugins: [
     new webpack.BannerPlugin("没有版权，随便你用"),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../index_temp.html')
+      template: path.resolve(__dirname, '../index.html')
     }),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.HotModuleReplacementPlugin()
