@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/dist/',
-    filename: '[name].js'
+    filename: '[name]-[hash].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -26,6 +26,10 @@ module.exports = {
   },
   module: {
     loaders: [
+      {
+        test: /\.css$/,
+        loader: ['style-loader','css-loader','less-loader']
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader'

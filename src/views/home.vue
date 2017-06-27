@@ -1,7 +1,7 @@
 <template>
 	<div>
 		121332
-		<img src="dist/assets/images/me.jpg" alt="">
+		<!-- <img src="dist/assets/images/me.jpg" alt=""> -->
 		<img :src="photo_me_url">
 	</div>
 </template>

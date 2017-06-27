@@ -9,7 +9,8 @@ const app = express()
 const compiler = webpack(webpackConfig)
 
 
-// app.use(express.static(path.resolve(__dirname,'../dist')))//配置静态资源访问目录?
+app.use('/static',express.static(path.resolve(__dirname,'../static')))//托管静态资源
+app.use('/dist',express.static(path.resolve(__dirname,'../dist')))//托管静态资源
 app.use(require('webpack-dev-middleware')(compiler, {
       publicPath: webpackConfig.output.publicPath,
       noInfo: true,
@@ -21,9 +22,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler))
 
 // app.use(require('connect-history-api-fallback')({
-//   index: path.resolve(__dirname, '../', 'index.html')}))
+//   index: path.resolve(__dirname,'../dist/index.html')}))
 app.get('*', function(req, res) {
-    res.sendFile(path.resolve(__dirname, '../', 'index.html'))
+    res.sendFile(path.resolve(__dirname, '../dist/index.html'))
 })
 
 app.listen(port, function (err) {
