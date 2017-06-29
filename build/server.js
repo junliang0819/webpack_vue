@@ -24,7 +24,7 @@ app.use(require('webpack-hot-middleware')(compiler))
 // app.use(require('connect-history-api-fallback')({
 //   index: path.resolve(__dirname,'../dist/index.html')}))
 app.get('*', function(req, res) {
-    res.sendFile(path.resolve(__dirname, '../dist/index.html'))
+    res.sendFile(path.resolve(__dirname, '../index.html'))
 })
 
 app.listen(port, function (err) {

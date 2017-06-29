@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Element from 'element-ui'
+import Mint from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import app from './views/app.vue'
 import router from './routes'
 Vue.use(VueRouter)
-Vue.use(Element)
+Vue.use(Mint)
 
 new Vue({
     router,
